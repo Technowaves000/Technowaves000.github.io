@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf=8" http-equiv="encoding">
+
+        <style>
+            body, html{
+            width:100%;
+            height:100%;
+        
+            display:grid;
+            background-color: lightcyan;
+            }
+            
+            header{
+                width: 100%;
+                height: 60px;
+                /* background-color: blanchedalmond; */
+            }
+
+            div{
+                height: 20px;
+            }
+
+            /* .container{
+            padding:10px;
+            background-color: #f5f5f5;
+
+            display: grid;
+            grid-template-columns: 1fr 500px 1fr;
+            grid-gap: 10px;
+
+            height: 100%;
+            } */
+
+
+            
+
+            #login{
+                float: right;
+            }
+
+            ul{
+                list-style: none;
+                padding-left: 0;
+            }
+
+            li{
+                background-color: plum;
+                margin-bottom: 10px;
+                padding: 10px;
+                list-style-type: none;
+                margin-right: 10px;
+                margin-left: 10px;
+                border-radius: 50px;
+            }
+
+            div.education{
+                width: 700px;
+                height: auto;
+                background-color:lightgreen;
+                display: grid;
+                margin: auto;
+            }
+
+            #educ-list li{
+                padding-left: 30px;
+                width: auto;
+                height: auto;
+            }
+
+            #addeduc{
+                margin: 10px;
+            }
+
+            #butteduc{
+                background-color: darkseagreen;
+                color: white;
+                border: none;
+            }
+
+            #educ{
+                background-color: #ffadad;
+                text-align: center;
+            }
+
+            div.organization{
+                width: 700px;
+                height: auto;
+                background-color:lightgreen;
+                display: grid;
+                margin: auto;
+            }
+            #org-list li{
+                padding-left: 30px;
+                width: auto;
+                height: auto;
+            }
+
+            #addorg{
+                margin: 10px;
+            }
+
+            #org{
+                background-color: #ffadad;
+                text-align: center;
+            }
+
+            #buttorg{
+                background-color: darkseagreen;
+                color: white;
+                border: none;
+            }
+
+            div.works{
+                width: 700px;
+                height: auto;
+                background-color:lightgreen;
+                display: grid;
+                margin: auto;
+            }
+
+            #work-list li{
+                padding-left: 30px;
+                width: auto;
+                height: auto;
+            }
+
+            #addwork{
+                margin: 10px;
+            }
+
+            #buttwork{
+                background-color: darkseagreen;
+                color: white;
+                border: none;
+            }
+
+            #work{
+                background-color: #ffadad;
+                text-align: center;
+            }
+
+            #introt{
+                text-align: center;
+                /* align-items: center; */
+            }
+
+            #intro{
+                width: auto;
+                height: auto;
+            }
+
+            #oth-list{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .features{
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                /* align-items: center; */
+                align-content: space-around;
+                /* width: 100%;
+                height: 100%; */
+            }
+
+            .features figure{
+                margin: 10px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                /* align-items: center; */
+                justify-content: space-around;
+            }
+
+            .features figure img{
+                width: 100px;
+            }
+
+            #main{
+                height: 100%;
+                width: 70% - 160px;
+                margin-left: 170px;
+                margin-right: 10px;
+            }
+
+            #sidebar{
+                height: 100%; /* Full-height: remove this if you want "auto" height */
+                width: 160px; /* Set the width of the sidebar */
+                position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+                z-index: 1; /* Stay on top */
+                top: 0; /* Stay at the top */
+                left: 0;
+                background-color: #111; /* Black */
+                overflow-x: hidden; /* Disable horizontal scroll */
+                padding-top: 20px;
+            }
+
+            #title{
+                text-align: center;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+
+        <header>
+            <form id="login">
+                <input type="text" id="user" name="user" placeholder="Username">
+                <input type="text" id="pass" name="pass" placeholder="Password">
+                <button type="button" id="buttlog">Login</button>
+            </form>
+            
+        </header>
+        
+        <div id="sidebar"></div>
+
+        <div id= main>
+            <div id="intro">
+                <h2 id="title">Jay's Resume</h2>
+            </div>
+
+            <div id="educ">EDUCATION</div>
+
+            <div class="education">
+                <ul id="educ-list"></ul>
+                <form id="addeduc">
+                    <input type="text" id="edegree" name="edegree" placeholder="Degree">
+                    <input type="text" id="eschool" name="eschool" placeholder="School">
+                    <input type="number" id="eystart" name="eystart" placeholder="Year Start">
+                    <input type="number" id="eyend" name="eyend" placeholder="Year End">
+                    <button type="button" id="butteduc">add</button>
+                </form>
+            </div>
+    
+            <div></div>
+            
+            <div id="org">ORGANIZATION</div>
+
+            <div class="organization">
+                <ul id="org-list"></ul>
+                <form id="addorg">
+                    <input type="text" id="oname" name="oname" placeholder="Name">
+                    <input type="text" id="oposition" name="oposition" placeholder="Position">
+                    <input type="number" id="oyend" name="oyend" placeholder="Year End">
+                    <input type="number" id="oystart" name="oystart" placeholder="Year Start">
+                    <button type="button" id="buttorg">add</button>
+                </form>
+            </div>
+    
+            <div></div>
+    
+            <div id="work">WORKS</div>
+
+            <div class="works">
+                <ul id="work-list"></ul>
+                <form id="addwork">
+                    <input type="text" id="wname" name="wname" placeholder="Name">
+                    <input type="text" id="wsubject" name="wsubject" placeholder="Subject">
+                    <input type="number" id="wyend" name="wyend" placeholder="Year End">
+                    <input type="number" id="wystart" name="wystart" placeholder="Year Start">
+                    <button type="button" id="buttwork">add</button>
+                </form>
+            </div>
+    
+            <div></div>
+    
+            <div class="others">
+                <div id="introt"></div> 
+                <section class="features">
+                    <figure>
+                        <img src="https://bitemycoin.com/wp-content/uploads/2018/06/GitHub-Logo.png" alt="github logo"> <!--<width="50px" height="50px"-->
+                        <img src="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" alt="fb logo">
+                        <img src="https://pmcdeadline2.files.wordpress.com/2016/09/twitter-logo.jpg" alt="twitter logo">
+                    </figure>
+                </section>
+                <ul id="oth-list"></ul>
+                <form id="editintro">
+                    <input type="text" id="intro" name="intro" placeholder="Introduction">
+                    <button type="button" id="buttintro">Edit</button>
+                </form>
+                <form id="editlink">
+                    <input type="text" id="gitt" name="gitt" placeholder="Github">
+                    <input type="text" id="linkt" name="linkt" placeholder="LinkedIn">
+                    <input type="text" id="twitt" name="twitt" placeholder="Twitter">
+                    <button type="button" id="buttlink">Update</button>
+                </form>
+            </div>
+        </div>
+        <script src="script.js"></script>
+
+    </body>
+</html>

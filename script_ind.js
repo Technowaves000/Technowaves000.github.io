@@ -68,16 +68,9 @@ function renderEduc(doc) {
     li.appendChild(school);
     li.appendChild(ystart);
     li.appendChild(yend);
-    li.appendChild(cross);
 
     educList.appendChild(li);
 
-    // delete data
-    cross.addEventListener("click", function(e){
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute("data-id");
-        db.collection("educations").doc(id).delete();
-    })
 
     // //testing delete
     // var remove_button = document.createElement("input")
@@ -172,16 +165,9 @@ function renderOrg(doc) {
     li.appendChild(position);
     li.appendChild(ystart);
     li.appendChild(yend);
-    li.appendChild(cross);
 
     orgList.appendChild(li);
 
-    // delete data
-    cross.addEventListener("click", function(e){
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute("data-id");
-        db.collection("organizations").doc(id).delete();
-    })
 }
 
 //add org
@@ -256,16 +242,9 @@ function renderWork(doc) {
     li.appendChild(subject);
     li.appendChild(ystart);
     li.appendChild(yend);
-    li.appendChild(cross);
 
     workList.appendChild(li);
 
-    // delete data
-    cross.addEventListener("click", function(e){
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute("data-id");
-        db.collection("works").doc(id).delete();
-    })
 }
 
 //add works
